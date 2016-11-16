@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="rollForInitiative">
+
+  <head>
+    <meta charset="utf-8">
+    <script data-require="angular.js.1.3@*" data-semver="1.5.2" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.js"></script>
+    <script src="script.js"></script>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Amita:400,700|Homemade+Apple|Merriweather+Sans" rel="stylesheet">  </head>
+
+  <body ng-controller="MainController">
+    <h1>
+      <div id="title">
+        {{message}}
+      </div>
+      <div id="line">
+        <img src="images/line.png" alt="Underline" style="height:70px;width:600px">
+      </div>
+    </h1>
+
+    <div id="addPlayers">
+      <form name="allPlayers">
+      <input type="add" placeholder="Player or Monster Name" / ng-model="name" class="input">
+      <input type="add" placeholder="Initiative Modifier" / ng-model="init" class="input">
+      <input type="add" placeholder="Hit Points" / ng-model="hp" class="input">
+      <input type="submit" value="Add Player" ng-click="addPlayer(name,init,hp)" class="button")><br><br>
+    </div>
+
+    <div>
+      <button ng-click="resetButton()" id="reset" class="button">Reset</button>
+    </div>
+
+    <div>
+      <button ng-click="button()" id="roll" class="button">Roll</button>
+    </div>
+
+    <div id="table">
+      <table>
+        <th ng-repeat= "header in headers" class="headers">
+          <a>
+            {{header}}
+          </a>
+        </th>
+        <tr ng-repeat="player in players">
+          <td class="info">{{ player.name }}</td>
+          <td class="info">{{player.roll}}</td>
+          <td class="info">{{ player.hp }}/{{player.maxHp}}</td>
+          <td class="info"><input type="add" placeholder="damage/heal" / ng-model="hit"></td>
+          <td class="buttoninfo"><input type="submit" value="Damage" ng-click="hitHeal($index,-hit)"></td>
+          <td class="buttoninfo"><input type="submit" value="Heal" ng-click="hitHeal($index,hit)"></td>
+      </tr>
+    </table>
+    </div>
+  </body>
+</html>

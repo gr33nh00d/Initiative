@@ -1,0 +1,129 @@
+body{
+	 margin: 0px;
+	 background-color: rgb(239,228,176);
+}
+
+h1{
+	font-family: 'Amita', bold;
+	font-size: 70px;
+	background-image: url(../images/krelganApp2.png);
+	margin: 0px;
+	padding-top: 10px;
+	height: 160px;
+	border-color: #FFFFFF;
+	z-index: -1;
+
+}
+
+#title{
+	margin: 0px;
+	padding-top: 0px;
+	width: 700px;
+	height: 100px;
+	background-color: ;
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+
+}
+
+#line{
+	margin-top: 65px;
+	margin-bottom: 0px
+	position: absolute;
+	left: 0;
+	top: 0;
+	height:25;
+	width: 700px;
+}
+
+.input{
+	font-family: 'Merriweather', serif;
+	font-size: 17px;
+	border:2px solid #456879;
+	border-radius:10px;
+	height: 22px;
+	width: 230px;
+
+}
+
+.button{
+	font-family: 'Merriweather', serif;
+	font-size: 25px;
+	border:2px solid: #456879;
+	border-radius:10px;
+}
+
+.button2{
+	font-family: 'Merriweather', serif;
+	font-size: 25px;
+	border:2px solid: #456879;
+	border-radius:10px;
+}
+
+#addPlayers{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 2px;
+	padding-left: 2px;
+	width: 100%;
+	height: 37px;
+	z-index: 2;
+	background-image: url(../images/d20.png), url(../images/d20r.png);
+	background-position: center bottom, left top;
+	background-color: grey;
+	border: 2px solid gray;
+	border-style: outset;
+}
+
+#roll{
+	height: 2em;
+	width: 4em;
+	font-size: 30px;
+	background-color: #00452E;
+	color: #CECDCD;
+	float: right;
+	border-radius: 10px;
+	z-index: 3;
+}
+
+#reset{
+	height: 2em;
+	width: 4em;
+	font-size: 30px;
+	background-color: #730320;
+	color: #CECDCD;
+	float: right;
+	margin-top: 0px;
+	border-radius:10px;
+}
+
+
+.headers{
+	font-family: 'Merriweather', serif;
+	font-size: 17px;
+	border:2px solid #456879;
+	border-radius:10px;
+	height: 22px;
+	width: 150px;
+	z-index: 2;
+	background-color: #305991;
+	color: #CECDCD;
+}
+
+.info{
+	font-family: 'Merriweather', serif;
+	font-size: 15px;
+	height: 20px;
+	width: 120px;
+	text-align: center;
+	z-index: 2;
+	background-color: ;
+}
+
+#table{
+margin-left: 30px;
+margin-right: 30px;
+
+}
