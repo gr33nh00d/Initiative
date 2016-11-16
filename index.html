@@ -23,7 +23,9 @@
       <input type="add" placeholder="Player or Monster Name" / ng-model="name" class="input">
       <input type="add" placeholder="Initiative Modifier" / ng-model="init" class="input">
       <input type="add" placeholder="Hit Points" / ng-model="hp" class="input">
-      <input type="submit" value="Add Player" ng-click="addPlayer(name,init,hp)" class="button")><br><br>
+      <input type="add" placeholder="Armor Class" / ng-model="ac" class="input">
+      <input type="submit" value="Add Player" ng-click="addPlayer(name,init,hp,ac)" class="button">
+      <input type="submit" value="Clone" ng-click="clone(name,init,hp,ac)" class="button"><br><br>
     </div>
 
     <div>
@@ -32,6 +34,10 @@
 
     <div>
       <button ng-click="button()" id="roll" class="button">Roll</button>
+    </div>
+        
+    <div>
+        <button ng-click="scale()" id="scale" class="button">Scale</button>
     </div>
 
     <div id="table">
@@ -44,6 +50,7 @@
         <tr ng-repeat="player in players">
           <td class="info">{{ player.name }}</td>
           <td class="info">{{player.roll}}</td>
+          <td class="info">{{player.ac}}</td>
           <td class="info">{{ player.hp }}/{{player.maxHp}}</td>
           <td class="info"><input type="add" placeholder="damage/heal" / ng-model="hit"></td>
           <td class="buttoninfo"><input type="submit" value="Damage" ng-click="hitHeal($index,-hit)"></td>

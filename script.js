@@ -6,25 +6,34 @@
   var MainController = function($scope){
     $scope.message = "Roll For Initiative";
     $scope.count = 0;
-    $scope.headers = ["Name", "Roll", "Current Hp", "Damage/Healing"]
+    var cloneCount = 1;
+    var cloneString = '';
+    $scope.headers = ["Name", "Roll","Armor Class", "Current Hp", "Damage/Healing"]
     var allPlayers = []
     $scope.players = allPlayers;
     var roll = function(init){
       return Number(Math.floor((Math.random()*19)+1)+init);
     };
 
-    $scope.addPlayer = function(name,init,hp){
-      console.log(Number(init));
-      console.log(Number(hp));
-      console.log(!isNaN(Number(init)));
+    $scope.addPlayer = function(name,init,hp,ac){
       if (!isNaN(Number(init)) && !isNaN(Number(hp))) {
-        console.log("kek");
-        allPlayers.push({name:String(name), init:Number(init), hp:Number(hp), maxHp:Number(hp)})
+          allPlayers.push({name:String(name), init:Number(init), hp:Number(hp), maxHp:Number(hp), ac:Number(ac)})
       }
       $scope.name=null;
       $scope.init=null;
       $scope.hp=null;
+      $scope.ac=null;
+      cloneCount=1;
     };
+      
+    $scope.clone = function(name,init,hp,ac){
+      if (!isNaN(Number(init)) && !isNaN(Number(hp))) {
+          cloneString = cloneCount.toString()
+          allPlayers.push({name:String(name)+cloneString, init:Number(init), hp:Number(hp), maxHp:Number(hp), ac:Number(ac)})
+      }
+      cloneCount=1+cloneCount;
+    };
+      
 
     $scope.hitHeal = function(index,hit){
       var newHp = allPlayers[index].hp=allPlayers[index].hp+Number(hit);
@@ -50,12 +59,17 @@
       allPlayers.sort(function(a,b){return (a.roll > b.roll) ? -1 : ((b.roll > a.roll) ? 1:0);});
       $scope.count++;
     }
+    
+    $scope.scale = function(){
+      for (var i = 0; i < allPlayers.length; i++) {
+        allPlayers[i].roll=allPlayers[i].roll+allPlayers[i].init;
+      }
+      allPlayers.sort(function(a,b){return (a.roll > b.roll) ? -1 : ((b.roll > a.roll) ? 1:0);});
+      $scope.count++;
+    }
 
     $scope.resetButton = function(){
-      allPlayers = [];
-      $scope.players=[];
-      console.log(allPlayers);
-      $scope.count = 0;
+      location.reload();
     }
   };
 
